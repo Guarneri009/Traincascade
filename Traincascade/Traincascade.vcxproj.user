@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>-data cascade/0/ -vec vec/pos0.vec -bg neg.dat -w 28 -h 28 -numStages 30 -numPos 300 -numNeg 300 -featureType LBP -mode BASIC -precalcValBufSize 128000 -precalcIdxBufSize 128000</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

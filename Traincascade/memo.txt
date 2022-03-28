@@ -1,0 +1,19 @@
+=== 単一画像自動変換
+opencv_createsamples.exe -img img/img_0_0.png -vec vec/pos0.vec -num 5000 -bgcolor 255 -maxidev 40 -maxxangle 0.8 -maxyangle 0.8 -maxzangle 0.5 -w 28 -h 28
+
+== make positve sample
+opencv_createsamples -info pos0.dat -vec vec/pos0.vec -num 500 -w 28 -h 28
+opencv_createsamples -info pos1.dat -vec vec/pos1.vec -num 500 -w 28 -h 28
+opencv_createsamples -info pos2.dat -vec vec/pos2.vec -num 500 -w 28 -h 28
+opencv_createsamples -info pos3.dat -vec vec/pos3.vec -num 500 -w 28 -h 28
+opencv_createsamples -info pos4.dat -vec vec/pos4.vec -num 500 -w 28 -h 28
+
+== train ==
+opencv_traincascade -data cascade/0/ -vec vec/pos0.vec -bg neg.dat -w 28 -h 28 -numStages 10 -numPos 450 -numNeg 800 -featureType LBP -mode ALL
+
+opencv_traincascade -data cascade/0/ -vec vec/pos0.vec -bg neg.dat -w 28 -h 28 -numStages 20 -numPos 250 -numNeg 400 -featureType LBP -mode ALL
+opencv_traincascade -data cascade/1/ -vec vec/pos1.vec -bg neg.dat -w 28 -h 28 -numStages 20 -numPos 250 -numNeg 400 -featureType LBP -mode ALL
+opencv_traincascade -data cascade/2/ -vec vec/pos2.vec -bg neg.dat -w 28 -h 28 -numStages 20 -numPos 250 -numNeg 400 -featureType LBP -mode ALL
+opencv_traincascade -data cascade/3/ -vec vec/pos3.vec -bg neg.dat -w 28 -h 28 -numStages 20 -numPos 250 -numNeg 400 -featureType LBP -mode ALL
+opencv_traincascade -data cascade/4/ -vec vec/pos4.vec -bg neg.dat -w 28 -h 28 -numStages 20 -numPos 250 -numNeg 400 -featureType LBP -mode ALL
+
